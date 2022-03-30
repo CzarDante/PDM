@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+import 'package:pdm_app/models/memoria.dart';
+import '../components/display.dart';
+import '../components/keyboard.dart';
+
+class calc extends StatefulWidget {
+  @override
+  State<calc> createState() => _calcState();
+}
+
+class _calcState extends State<calc> {
+  final memoria memory = memoria();
+  _onPressed(String command) {
+    setState(() {
+      memory.cbcomand(command);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Column(
+        children: <Widget>[
+          display(memory.value),
+          keyboard(_onPressed),
+        ],
+      ),
+    );
+  }
+}
