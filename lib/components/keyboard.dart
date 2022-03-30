@@ -12,47 +12,50 @@ class keyboard extends StatelessWidget {
       height: 500,
       child: Column(
         children: <Widget>[
-          buttonRow([
-            button(text: 'C', callback: callback),
-            button(text: ' ', callback: callback),
-            button(text: 'Dark', callback: callback),
-            button(text: 'Del', callback: callback),
-          ]),
           SizedBox(
-            height: 1,
+            height: 1.5,
           ),
           buttonRow([
-            button(text: '7', callback: callback),
-            button(text: '8', callback: callback),
-            button(text: '9', callback: callback),
-            button(text: '/', callback: callback)
+            button(text: 'C', dark: darkstate, callback: callback),
+            button(text: ' ', dark: darkstate, callback: callback),
+            button(text: 'Dark', dark: darkstate, callback: callback),
+            button(text: 'Del', dark: darkstate, callback: callback),
           ]),
           SizedBox(
-            height: 1,
+            height: 1.5,
           ),
           buttonRow([
-            button(text: '4', callback: callback),
-            button(text: '5', callback: callback),
-            button(text: '6', callback: callback),
-            button(text: 'x', callback: callback)
+            button(text: '7', dark: darkstate, callback: callback),
+            button(text: '8', dark: darkstate, callback: callback),
+            button(text: '9', dark: darkstate, callback: callback),
+            button(text: '/', dark: darkstate, callback: callback)
           ]),
           SizedBox(
-            height: 1,
+            height: 1.5,
           ),
           buttonRow([
-            button(text: '1', callback: callback),
-            button(text: '2', callback: callback),
-            button(text: '3', callback: callback),
-            button(text: '-', callback: callback)
+            button(text: '4', dark: darkstate, callback: callback),
+            button(text: '5', dark: darkstate, callback: callback),
+            button(text: '6', dark: darkstate, callback: callback),
+            button(text: 'x', dark: darkstate, callback: callback)
           ]),
           SizedBox(
-            height: 1,
+            height: 1.5,
           ),
           buttonRow([
-            button(text: '.', callback: callback),
-            button(text: '0', callback: callback),
-            button(text: '+', callback: callback),
-            button(text: '=', callback: callback)
+            button(text: '1', dark: darkstate, callback: callback),
+            button(text: '2', dark: darkstate, callback: callback),
+            button(text: '3', dark: darkstate, callback: callback),
+            button(text: '-', dark: darkstate, callback: callback)
+          ]),
+          SizedBox(
+            height: 1.5,
+          ),
+          buttonRow([
+            button(text: '.', dark: darkstate, callback: callback),
+            button(text: '0', dark: darkstate, callback: callback),
+            button(text: '+', dark: darkstate, callback: callback),
+            button(text: '=', dark: darkstate, callback: callback)
           ]),
         ],
       ),

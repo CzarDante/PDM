@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:pdm_app/components/button.dart';
 import 'package:pdm_app/models/memoria.dart';
 import '../components/display.dart';
 import '../components/keyboard.dart';
@@ -18,6 +20,8 @@ class _calcState extends State<calc> {
 
   @override
   Widget build(BuildContext context) {
+    //Trava a rotação automatica.
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp(
       home: Column(
         children: <Widget>[

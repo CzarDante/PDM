@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+//State do modo Dark da Calculadora.
+bool darkstate = true;
+
 class button extends StatelessWidget {
   final String text;
   final bool dobro;

@@ -1,19 +1,23 @@
 import 'dart:convert';
 import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:pdm_app/components/button.dart';
 
 class memoria {
+  //_value é oq sera mostrado na tela, setado como vazio ao inicio.
   String _value = '';
-
+  //funcao que reconhece se são operadores ou operandos.
   void cbcomand(String command) {
     if (command == 'C') {
       _clear();
       return;
     }
     if (command == 'Dark') {
-      // _dark()
-      //not implemented
+      if (darkstate == true) {
+        darkstate = false;
+      } else {
+        darkstate = true;
+      }
       return;
     }
     if (command == ' ') {
@@ -28,7 +32,6 @@ class memoria {
     }
     if (command == 'Del') {
       String deletando = _value;
-
       _value = deletando.substring(0, deletando.length - 1);
       return;
     } else {
@@ -58,7 +61,6 @@ class memoria {
           operandos.removeLast();
           operandos.removeLast();
           operandos.add(calculo);
-          print("resultado");
         } else {
           print("Syntax Error");
           return 'Syntax Error';
@@ -76,10 +78,8 @@ class memoria {
       for (var i in operandos) {
         int? value = int.tryParse(i);
         intList.add(value!);
-        print(intList);
       }
       result = intList[tamanho - 2] + intList[tamanho - 1];
-      print(result);
       return result.toString();
     }
     if (operador == '-') {
@@ -87,7 +87,6 @@ class memoria {
       for (var i in operandos) {
         int? value = int.tryParse(i);
         intList.add(value!);
-        print(intList);
       }
       result = intList[tamanho - 2] - intList[tamanho - 1];
       return result.toString();
@@ -97,7 +96,6 @@ class memoria {
       for (var i in operandos) {
         int? value = int.tryParse(i);
         intList.add(value!);
-        print(intList);
       }
       result = intList[tamanho - 2] * intList[tamanho - 1];
       return result.toString();
@@ -107,16 +105,11 @@ class memoria {
       for (var i in operandos) {
         int? value = int.tryParse(i);
         intList.add(value!);
-        print(intList);
       }
       divi = intList[tamanho - 2] / intList[tamanho - 1];
       return divi.toString();
     }
   }
-
-  // _dark() {
-  //   //troca o valor de dark, alterando o tema;
-  // }
 
   String get value {
     return _value;
